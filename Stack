@@ -102,6 +102,43 @@ _______
  5. return res.
  
  
+ 
+ 2) https://www.geeksforgeeks.org/design-and-implement-special-stack-data-structure/
+ Que : Create a stack datastructure which will have all operations push, pop, getMin in O(1)
+ Ans :
+ Method 1 : Create 2 stacks - one to store elements, one to store what is the min until that point
+ While pushing, check if the val < min( stack2.top ), then push the val in both of stacks. or else push min in auxillary stack again and val in normal stack.
+ For popping, pop both the tops from two stack.
+ 
+ Method 2: Create 2 stacks, but in min stack dont store min at every point.
+ While pushing, push ele directly in normal stack and min stack check val < min, if true, then push ele in min stack.
+ While popping, check if normal stack top is equal to min stack top, if yes pop from both stacks. or else, pop from normal stack only.
+ 
+ Method 3: Create only one stack which stores val * dummy(can be 999) + min 
+ 3, 2, 6, 1, 8, 5, 5, 5, 5
+ First min = -1;
+ push(3)
+ update min
+ Then insert 3 * 999 + min in stack
+ 
+ for pop()
+ s.pop()
+ if(check s is empty) {
+  min = -1;
+ }else{ 
+  int res = s.top()
+  min = res % 999;
+  }
+  
+  getMin(){
+  return min
+  }
+  
+  
+  
+ 
+ 
+ 
 
 
 
