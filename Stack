@@ -1,0 +1,44 @@
+Stack - LIFO -
+
+
+******************************* Namespace **********************************************
+#incluce <bits/stdc++.h>
+using namespace std; ---- all the functions like cout and cin, etc. are in the namespace called std.
+
+//namespace - In programming, we cannot have variables, functions, etc with the same name. So to avoid those conflicts we use namespaces.
+namespace A {
+  int x = 1;
+  void printx{
+    cout<<x;
+  }
+}
+
+namespace B {
+  int x = 1;
+  void printx{
+    cout<<x;
+  }
+}
+
+int main() {
+  A::printx;
+  B::printx;
+}
+
+
+******************************* Stack **********************************************
+
+//declare stack
+stack<int> s;
+
+//insert elements
+s.push(1);
+
+//get size of stack
+cout<<s.size();
+
+//check stack is empty
+if(s.empty()){
+  cout<<"stack empty";
+}
+
