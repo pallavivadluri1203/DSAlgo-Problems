@@ -62,10 +62,52 @@ printing s2 = 2 1
 
 //emplace 
 Difference between stack::emplace() and stack::push() function. 
-While push() function inserts a copy of the value or the parameter passed to the function into the container at the top, the emplace() function constructs a new element as the value of the parameter and then adds it to the top of the container. 
+While push() function inserts a copy of the value or the parameter passed to the 
+function into the container at the top, the emplace() function constructs a new element 
+as the value of the parameter and then adds it to the top of the container. 
 s.emplace(5);
 
 
 
 Problems :
 1. https://www.geeksforgeeks.org/queue-using-stacks/
+Que : Use stacks to have create a queue data structure, which will have all operations of queue such as enqueue, dequeue.
+Ans : Create two stacks.
+method 1 : stack1 will store elements with oldest on top, so that 1. dequeue will be fast. 2. enqueue : we have to move all elements to s2 and add ele to s1. 
+and move all ele to s1 back. ----- Two times shifting 
+|   1   |
+|   2   | 
+|   3   |
+_______
+  s1 
+method 2 : store in reverse. stack1 will store oldest in the bottom of stack, so when we dequeue we will move all 
+elements to stack2 and keep it like that (ie. so for popping/ dequeueing we always use stack2 as it will always have oldest ele on top. If there are no elements in s2,
+move all ele from s1 to s2 and then pop from s2). ----- Only once shifting.
+|   3   |
+|   2   | 
+|   1   |
+_______
+  s1 
+  
+ Method 3 : Using one stack, one func call stack
+ create one stack s
+ enqueue : directly add in s
+ dequeue: 
+ 1. check if stack is empty or not. If empty exit(0) and print stack is empty
+ or else proceed
+ 2. Store top in an element and pop it.
+ 6. // write base condition. Return when stack is empty return the top which was stored (i.e the last element).
+ 3. Call dequeue such that, we get last element. Store it in variable res.
+ 4. Push the element in stack back again.
+ 5. return res.
+ 
+ 
+
+
+
+
+
+
+
+
+
